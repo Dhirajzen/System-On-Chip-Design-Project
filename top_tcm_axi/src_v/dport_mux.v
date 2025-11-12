@@ -48,6 +48,8 @@ module dport_mux
 //-----------------------------------------------------------------
 #(
      parameter TCM_MEM_BASE     = 0
+    //telemetry base addr
+    ,parameter TELEMETRY_BASE   = 32'h8000_1000
 )
 //-----------------------------------------------------------------
 // Ports
@@ -100,6 +102,11 @@ module dport_mux
     ,output          mem_ext_invalidate_o
     ,output          mem_ext_writeback_o
     ,output          mem_ext_flush_o
+    // Telemetry inputs (64-bit counters from the core)
+    ,input  [ 63:0]  tlm_mcycle_i
+    ,input  [ 63:0]  tlm_minstret_i
+    ,input  [ 63:0]  tlm_stall_i
+    
 );
 
 
@@ -113,13 +120,33 @@ wire hold_w;
 wire tcm_access_w = (mem_addr_i >= TCM_MEM_BASE && mem_addr_i < (TCM_MEM_BASE + 32'd65536));
 /* verilator lint_on UNSIGNED */
 
+// Telemetry MMIO window: 0x8000_1000 .. +0x14 (64 bytes window)
+wire telem_hit_w = ((mem_addr_i & 32'hFFFF_FFC0) == TELEMETRY_BASE);
+
+reg [31:0] telem_rdata_w;
+always @* begin
+    case (mem_addr_i[5:0])
+      6'h00: telem_rdata_w = tlm_mcycle_i[31:0];
+      6'h04: telem_rdata_w = tlm_mcycle_i[63:32];
+      6'h08: telem_rdata_w = tlm_minstret_i[31:0];
+      6'h0C: telem_rdata_w = tlm_minstret_i[63:32];
+      6'h10: telem_rdata_w = tlm_stall_i[31:0];
+      6'h14: telem_rdata_w = tlm_stall_i[63:32];
+      default: telem_rdata_w = 32'h0;
+    endcase
+end
+
 reg       tcm_access_q;
 reg [4:0] pending_q;
 
 assign mem_tcm_addr_o       = mem_addr_i;
 assign mem_tcm_data_wr_o    = mem_data_wr_i;
-assign mem_tcm_rd_o         = (tcm_access_w & ~hold_w) ? mem_rd_i : 1'b0;
-assign mem_tcm_wr_o         = (tcm_access_w & ~hold_w) ? mem_wr_i : 4'b0;
+//telemetry
+// assign mem_tcm_rd_o         = (tcm_access_w & ~hold_w) ? mem_rd_i : 1'b0;
+// assign mem_tcm_wr_o         = (tcm_access_w & ~hold_w) ? mem_wr_i : 4'b0;
+assign mem_tcm_rd_o = (tcm_access_w & ~hold_w & ~telem_hit_w) ? mem_rd_i : 1'b0;
+assign mem_tcm_wr_o = (tcm_access_w & ~hold_w & ~telem_hit_w) ? mem_wr_i : 4'b0;
+
 assign mem_tcm_cacheable_o  = mem_cacheable_i;
 assign mem_tcm_req_tag_o    = mem_req_tag_i;
 assign mem_tcm_invalidate_o = (tcm_access_w & ~hold_w) ? mem_invalidate_i : 1'b0;
@@ -128,19 +155,42 @@ assign mem_tcm_flush_o      = (tcm_access_w & ~hold_w) ? mem_flush_i : 1'b0;
 
 assign mem_ext_addr_o       = mem_addr_i;
 assign mem_ext_data_wr_o    = mem_data_wr_i;
-assign mem_ext_rd_o         = (~tcm_access_w & ~hold_w) ? mem_rd_i : 1'b0;
-assign mem_ext_wr_o         = (~tcm_access_w & ~hold_w) ? mem_wr_i : 4'b0;
+
+//telemetry
+// assign mem_ext_rd_o         = (~tcm_access_w & ~hold_w) ? mem_rd_i : 1'b0;
+// assign mem_ext_wr_o         = (~tcm_access_w & ~hold_w) ? mem_wr_i : 4'b0;
+assign mem_ext_rd_o = (~tcm_access_w & ~hold_w & ~telem_hit_w) ? mem_rd_i : 1'b0;
+assign mem_ext_wr_o = (~tcm_access_w & ~hold_w & ~telem_hit_w) ? mem_wr_i : 4'b0;
+
 assign mem_ext_cacheable_o  = mem_cacheable_i;
 assign mem_ext_req_tag_o    = mem_req_tag_i;
-assign mem_ext_invalidate_o = (~tcm_access_w & ~hold_w) ? mem_invalidate_i : 1'b0;
-assign mem_ext_writeback_o  = (~tcm_access_w & ~hold_w) ? mem_writeback_i : 1'b0;
-assign mem_ext_flush_o      = (~tcm_access_w & ~hold_w) ? mem_flush_i : 1'b0;
+// assign mem_ext_invalidate_o = (~tcm_access_w & ~hold_w) ? mem_invalidate_i : 1'b0;
+// assign mem_ext_writeback_o  = (~tcm_access_w & ~hold_w) ? mem_writeback_i : 1'b0;
+// assign mem_ext_flush_o      = (~tcm_access_w & ~hold_w) ? mem_flush_i : 1'b0;
 
-assign mem_accept_o         =(tcm_access_w ? mem_tcm_accept_i   : mem_ext_accept_i) & !hold_w;
-assign mem_data_rd_o        = tcm_access_q ? mem_tcm_data_rd_i  : mem_ext_data_rd_i;
-assign mem_ack_o            = tcm_access_q ? mem_tcm_ack_i      : mem_ext_ack_i;
-assign mem_error_o          = tcm_access_q ? mem_tcm_error_i    : mem_ext_error_i;
-assign mem_resp_tag_o       = tcm_access_q ? mem_tcm_resp_tag_i : mem_ext_resp_tag_i;
+// assign mem_accept_o         =(tcm_access_w ? mem_tcm_accept_i   : mem_ext_accept_i) & !hold_w;
+// assign mem_data_rd_o        = tcm_access_q ? mem_tcm_data_rd_i  : mem_ext_data_rd_i;
+// assign mem_ack_o            = tcm_access_q ? mem_tcm_ack_i      : mem_ext_ack_i;
+// assign mem_error_o          = tcm_access_q ? mem_tcm_error_i    : mem_ext_error_i;
+// assign mem_resp_tag_o       = tcm_access_q ? mem_tcm_resp_tag_i : mem_ext_resp_tag_i;
+
+// Block fabric ops when hitting telemetry window
+assign mem_ext_invalidate_o = (~tcm_access_w & ~hold_w & ~telem_hit_w) ? mem_invalidate_i : 1'b0;
+assign mem_ext_writeback_o  = (~tcm_access_w & ~hold_w & ~telem_hit_w) ? mem_writeback_i  : 1'b0;
+assign mem_ext_flush_o      = (~tcm_access_w & ~hold_w & ~telem_hit_w) ? mem_flush_i      : 1'b0;
+
+// Accept: always ready for telemetry; otherwise pass through
+wire mem_accept_bus_w = (tcm_access_w ? mem_tcm_accept_i : mem_ext_accept_i) & ~hold_w;
+assign mem_accept_o   = telem_hit_w ? 1'b1 : mem_accept_bus_w;
+
+// Ack + data: immediate for telemetry; otherwise from selected bus
+wire mem_ack_bus_w    = tcm_access_q ? mem_tcm_ack_i      : mem_ext_ack_i;
+wire [31:0] mem_data_bus_w = tcm_access_q ? mem_tcm_data_rd_i : mem_ext_data_rd_i;
+
+assign mem_ack_o      = telem_hit_w ? (mem_rd_i | (mem_wr_i != 4'b0)) : mem_ack_bus_w;
+assign mem_data_rd_o  = telem_hit_w ? telem_rdata_w : mem_data_bus_w;
+assign mem_error_o    = telem_hit_w ? 1'b0 : (tcm_access_q ? mem_tcm_error_i : mem_ext_error_i);
+assign mem_resp_tag_o = telem_hit_w ? mem_req_tag_i : (tcm_access_q ? mem_tcm_resp_tag_i : mem_ext_resp_tag_i);
 
 wire   request_w            = mem_rd_i || mem_wr_i != 4'b0 || mem_flush_i || mem_invalidate_i || mem_writeback_i;
 

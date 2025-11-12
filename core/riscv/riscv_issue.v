@@ -149,6 +149,10 @@ module riscv_issue
     ,output          exec_hold_o
     ,output          mul_hold_o
     ,output          interrupt_inhibit_o
+    //telemetry
+    ,output          retire_pulse_o
+    ,output          stall_cycle_o
+
 );
 
 
@@ -234,6 +238,26 @@ wire [`EXCEPTION_W-1:0] pipe_exception_wb_w;
 
 wire [`EXCEPTION_W-1:0] issue_fault_w = fetch_fault_fetch_i ? `EXCEPTION_FAULT_FETCH:
                                         fetch_fault_page_i  ? `EXCEPTION_PAGE_FAULT_INST: `EXCEPTION_W'b0;
+
+// -------------------------------------------------------------
+// Telemetry pulses
+//   - retire_pulse_o: asserted when an instruction reaches WB with no exception
+//   - stall_cycle_o : asserted on a cycle where no retire happens and the pipe is held
+// -------------------------------------------------------------
+wire retire_pulse_w = pipe_valid_wb_w && (pipe_exception_wb_w == {`EXCEPTION_W{1'b0}});
+
+// Pipe-level holds: already available at the module boundary
+//   exec_hold_o, mul_hold_o are outputs from this module
+//   lsu_stall_i is an input to this module
+// Backpressure from fetch: fetch_valid_i && !fetch_accept_o
+wire fetch_bp_w = fetch_valid_i && !fetch_accept_o;
+
+// "stall" = cycle where we didn't retire and the pipe was waiting
+wire stall_cycle_w = (~retire_pulse_w) & (exec_hold_o | mul_hold_o | lsu_stall_i | fetch_bp_w);
+
+assign retire_pulse_o = retire_pulse_w;
+assign stall_cycle_o  = stall_cycle_w;
+
 
 riscv_pipe_ctrl
 #( 

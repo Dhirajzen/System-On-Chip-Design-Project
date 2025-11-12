@@ -162,6 +162,11 @@ wire  [  3:0]  dport_axi_wr_w;
 wire           dport_axi_flush_w;
 wire           dport_tcm_error_w;
 wire           dport_accept_w;
+//telemetry
+wire [63:0] tlm_mcycle_w;
+wire [63:0] tlm_minstret_w;
+wire [63:0] tlm_stall_w;
+
 
 
 riscv_core
@@ -201,6 +206,11 @@ u_core
     ,.mem_i_flush_o(ifetch_flush_w)
     ,.mem_i_invalidate_o(ifetch_invalidate_w)
     ,.mem_i_pc_o(ifetch_pc_w)
+    //telemetry
+    ,.tlm_mcycle_o   (tlm_mcycle_w)
+    ,.tlm_minstret_o (tlm_minstret_w)
+    ,.tlm_stall_o    (tlm_stall_w)
+
 );
 
 
@@ -257,6 +267,12 @@ u_dmux
     ,.mem_ext_invalidate_o(dport_axi_invalidate_w)
     ,.mem_ext_writeback_o(dport_axi_writeback_w)
     ,.mem_ext_flush_o(dport_axi_flush_w)
+
+    // Telemetry counter inputs
+    ,.tlm_mcycle_i   (tlm_mcycle_w)
+    ,.tlm_minstret_i (tlm_minstret_w)
+    ,.tlm_stall_i    (tlm_stall_w)
+
 );
 
 
