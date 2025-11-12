@@ -88,6 +88,11 @@ module riscv_core
     ,output          mem_i_flush_o
     ,output          mem_i_invalidate_o
     ,output [ 31:0]  mem_i_pc_o
+    //telemetry
+    ,output [ 63:0]  tlm_mcycle_o
+    ,output [ 63:0]  tlm_minstret_o
+    ,output [ 63:0]  tlm_stall_o
+
 );
 
 wire           mmu_lsu_writeback_w;
@@ -215,6 +220,15 @@ wire           mmu_lsu_accept_w;
 wire  [ 31:0]  lsu_opcode_rb_operand_w;
 wire           mmu_sum_w;
 wire  [ 31:0]  writeback_exec_value_w;
+// --- Telemetry event & counters ---
+wire          retire_pulse_w;
+wire          stall_cycle_w;
+
+wire [63:0]   tlm_mcycle_w;
+wire [63:0]   tlm_minstret_w;
+wire [63:0]   tlm_stall_w;
+
+
 wire  [  4:0]  lsu_opcode_ra_idx_w;
 wire  [ 31:0]  csr_writeback_exception_pc_w;
 wire           mmu_store_fault_w;
@@ -450,6 +464,23 @@ u_csr
     ,.mmu_satp_o(mmu_satp_w)
 );
 
+//telemetry instance
+telemetry_counters u_tlm_cnt (
+  .clk          (clk_i),
+  .rst_n        (~rst_i),
+  .cycle_en     (1'b1),           // tie high unless you add a freeze mode
+  .retire_pulse (retire_pulse_w),
+  .stall_cycle  (stall_cycle_w),
+  .mcycle       (tlm_mcycle_w),
+  .minstret     (tlm_minstret_w),
+  .stall_cycles (tlm_stall_w)
+);
+
+assign tlm_mcycle_o   = tlm_mcycle_w;
+assign tlm_minstret_o = tlm_minstret_w;
+assign tlm_stall_o    = tlm_stall_w;
+
+
 
 riscv_multiplier
 u_mul
@@ -502,6 +533,10 @@ riscv_issue
     ,.SUPPORT_MULDIV(SUPPORT_MULDIV)
     ,.SUPPORT_MUL_BYPASS(SUPPORT_MUL_BYPASS)
     ,.SUPPORT_DUAL_ISSUE(1)
+    //telemetry
+    ,.retire_pulse_o(retire_pulse_w)
+    ,.stall_cycle_o(stall_cycle_w)
+
 )
 u_issue
 (
