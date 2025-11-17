@@ -1,4 +1,4 @@
-// rtl/telemetry/telemetry_counters.sv
+// core/riscv/telemetry_counters.sv
 module telemetry_counters #(
   parameter WIDTH = 64
 ) (
@@ -8,7 +8,7 @@ module telemetry_counters #(
 
   // one-cycle events from the pipeline
   input  logic              retire_pulse,   // one per committed instruction
-  input  logic              stall_cycle,    // high for cycles with no retire
+  input  logic              stall_cycle,    // high for cycles the pipe is actually stalled
 
   // counters out
   output logic [WIDTH-1:0]  mcycle,
@@ -18,8 +18,10 @@ module telemetry_counters #(
 
   // free-running cycle counter
   always_ff @(posedge clk or negedge rst_n) begin
-    if (!rst_n) mcycle <= '0;
-    else if (cycle_en)  mcycle <= mcycle + 1'b1;
+    if (!rst_n)
+      mcycle <= '0;
+    else if (cycle_en)
+      mcycle <= mcycle + 1'b1;
   end
 
   // retired & stall counters
@@ -28,8 +30,10 @@ module telemetry_counters #(
       minstret     <= '0;
       stall_cycles <= '0;
     end else if (cycle_en) begin
-      if (retire_pulse)       minstret     <= minstret + 1'b1;
-      else                    stall_cycles <= stall_cycles + 1'b1;
+      if (retire_pulse)
+        minstret <= minstret + 1'b1;
+      if (stall_cycle)
+        stall_cycles <= stall_cycles + 1'b1;
     end
   end
 

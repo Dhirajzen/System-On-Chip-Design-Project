@@ -74,6 +74,9 @@ module riscv_csr
     ,input  [ 31:0]  reset_vector_i
     ,input           interrupt_inhibit_i
 
+    // NEW: mul_busy performance counter input
+    ,input  [ 31:0]  mul_busy_cycles_i
+
     // Outputs
     ,output [ 31:0]  csr_result_e1_value_o
     ,output          csr_result_e1_write_o
@@ -91,12 +94,15 @@ module riscv_csr
     ,output [ 31:0]  mmu_satp_o
 );
 
-
-
 //-----------------------------------------------------------------
 // Includes
 //-----------------------------------------------------------------
 `include "riscv_defs.v"
+
+//-----------------------------------------------------------------
+// CSR address helper
+//-----------------------------------------------------------------
+wire [11:0] csr_addr_w = opcode_opcode_i[31:20];
 
 //-----------------------------------------------------------------
 // Registers / Wires
@@ -147,7 +153,7 @@ begin
     csr_fault_r     = SUPPORT_SUPER ? (opcode_valid_i && (set_r | clr_r) && ((csr_write_r && csr_readonly_r) || (current_priv_w < csr_priv_r))) : 1'b0;
 end
 
-wire satp_update_w = (opcode_valid_i && (set_r || clr_r) && csr_write_r && (opcode_opcode_i[31:20] == `CSR_SATP));
+wire satp_update_w = (opcode_valid_i && (set_r || clr_r) && csr_write_r && (csr_addr_w == `CSR_SATP));
 
 //-----------------------------------------------------------------
 // CSR register file
@@ -180,7 +186,7 @@ u_csrfile
 
     // Issue
     ,.csr_ren_i(opcode_valid_i)
-    ,.csr_raddr_i(opcode_opcode_i[31:20])
+    ,.csr_raddr_i(csr_addr_w)
     ,.csr_rdata_o(csr_rdata_w)
 
     // Exception (WB)
@@ -204,6 +210,16 @@ u_csrfile
     // Masked interrupt output
     ,.interrupt_o(interrupt_w)
 );
+
+//-----------------------------------------------------------------
+// CSR read mux for custom perf counter
+//-----------------------------------------------------------------
+// If CSR addr == 0xB04, return mul_busy_cycles_i instead of regfile value.
+// Otherwise, use the standard csr_rdata_w.
+wire [31:0] csr_rdata_sel_w;
+assign csr_rdata_sel_w = (csr_addr_w == 12'hB04)
+                         ? mul_busy_cycles_i       // 5. mul_busy_cycles
+                         : csr_rdata_w;
 
 //-----------------------------------------------------------------
 // CSR Read Result (E1) / Early exceptions
@@ -233,7 +249,8 @@ begin
     if (opcode_invalid_i || csr_fault_r || eret_fault_w)
         rd_result_e1_q  <= opcode_opcode_i;
     else    
-        rd_result_e1_q  <= csr_rdata_w;
+        // Use muxed CSR data (includes mul_busy_cycles_i at 0xB04)
+        rd_result_e1_q  <= csr_rdata_sel_w;
 
     // E1 CSR exceptions
     if ((opcode_opcode_i & `INST_ECALL_MASK) == `INST_ECALL)
@@ -254,12 +271,13 @@ begin
         exception_e1_q  <= `EXCEPTION_W'b0;
 
     // Value to be written to CSR registers
+    // (read-modify-write operations see the muxed data as well)
     if (set_r && clr_r)
         csr_wdata_e1_q <= data_r;
     else if (set_r)
-        csr_wdata_e1_q <= csr_rdata_w | data_r;
+        csr_wdata_e1_q <= csr_rdata_sel_w | data_r;
     else if (clr_r)
-        csr_wdata_e1_q <= csr_rdata_w & ~data_r;
+        csr_wdata_e1_q <= csr_rdata_sel_w & ~data_r;
 end
 else
 begin

@@ -57,16 +57,17 @@ module riscv_multiplier
 
     // Outputs
     ,output [ 31:0]  writeback_value_o
+    ,output          busy_o          // NEW: multiplier busy flag
 );
-
-
 
 //-----------------------------------------------------------------
 // Includes
 //-----------------------------------------------------------------
 `include "riscv_defs.v"
 
-localparam MULT_STAGES = 2; // 2 or 3
+// 2 or 3 pipeline stages for the multiplier core
+localparam MULT_STAGES      = 2;
+localparam MUL_PIPE_STAGES  = (MULT_STAGES == 3) ? 3 : 2;
 
 //-------------------------------------------------------------
 // Registers / Wires
@@ -78,42 +79,50 @@ reg [32:0]   operand_a_e1_q;
 reg [32:0]   operand_b_e1_q;
 reg          mulhi_sel_e1_q;
 
+// Valid bits for multiplier pipeline stages
+reg [MUL_PIPE_STAGES-1:0] mul_valid_q;
+
 //-------------------------------------------------------------
-// Multiplier
+// Multiplier instruction detect
 //-------------------------------------------------------------
-wire [64:0]  mult_result_w;
-reg  [32:0]  operand_b_r;
-reg  [32:0]  operand_a_r;
-reg  [31:0]  result_r;
+wire mult_inst_w = ((opcode_opcode_i & `INST_MUL_MASK)    == `INST_MUL)    || 
+                   ((opcode_opcode_i & `INST_MULH_MASK)   == `INST_MULH)   ||
+                   ((opcode_opcode_i & `INST_MULHSU_MASK) == `INST_MULHSU) ||
+                   ((opcode_opcode_i & `INST_MULHU_MASK)  == `INST_MULHU);
 
-wire mult_inst_w    = ((opcode_opcode_i & `INST_MUL_MASK) == `INST_MUL)        || 
-                      ((opcode_opcode_i & `INST_MULH_MASK) == `INST_MULH)      ||
-                      ((opcode_opcode_i & `INST_MULHSU_MASK) == `INST_MULHSU)  ||
-                      ((opcode_opcode_i & `INST_MULHU_MASK) == `INST_MULHU);
+wire mul_new_valid_w = opcode_valid_i && mult_inst_w && !hold_i;
 
+//-------------------------------------------------------------
+// Operand selection
+//-------------------------------------------------------------
+reg [32:0] operand_a_r;
+reg [32:0] operand_b_r;
 
-always @ *
+// Operand A select
+always @*
 begin
     if ((opcode_opcode_i & `INST_MULHSU_MASK) == `INST_MULHSU)
-        operand_a_r = {opcode_ra_operand_i[31], opcode_ra_operand_i[31:0]};
+        operand_a_r = {opcode_ra_operand_i[31], opcode_ra_operand_i[31:0]}; // signed
     else if ((opcode_opcode_i & `INST_MULH_MASK) == `INST_MULH)
-        operand_a_r = {opcode_ra_operand_i[31], opcode_ra_operand_i[31:0]};
-    else // MULHU || MUL
-        operand_a_r = {1'b0, opcode_ra_operand_i[31:0]};
+        operand_a_r = {opcode_ra_operand_i[31], opcode_ra_operand_i[31:0]}; // signed
+    else
+        operand_a_r = {1'b0, opcode_ra_operand_i[31:0]};                     // unsigned
 end
 
-always @ *
+// Operand B select
+always @*
 begin
     if ((opcode_opcode_i & `INST_MULHSU_MASK) == `INST_MULHSU)
-        operand_b_r = {1'b0, opcode_rb_operand_i[31:0]};
+        operand_b_r = {1'b0, opcode_rb_operand_i[31:0]};                     // unsigned
     else if ((opcode_opcode_i & `INST_MULH_MASK) == `INST_MULH)
-        operand_b_r = {opcode_rb_operand_i[31], opcode_rb_operand_i[31:0]};
-    else // MULHU || MUL
-        operand_b_r = {1'b0, opcode_rb_operand_i[31:0]};
+        operand_b_r = {opcode_rb_operand_i[31], opcode_rb_operand_i[31:0]};  // signed
+    else
+        operand_b_r = {1'b0, opcode_rb_operand_i[31:0]};                     // unsigned
 end
 
-
-// Pipeline flops for multiplier
+//-------------------------------------------------------------
+// Pipeline stage E1: register operands + hi/lo select
+//-------------------------------------------------------------
 always @(posedge clk_i or posedge rst_i)
 if (rst_i)
 begin
@@ -122,11 +131,14 @@ begin
     mulhi_sel_e1_q <= 1'b0;
 end
 else if (hold_i)
-    ;
+begin
+    // hold pipeline
+end
 else if (opcode_valid_i && mult_inst_w)
 begin
     operand_a_e1_q <= operand_a_r;
     operand_b_e1_q <= operand_b_r;
+    // mulhi when instruction is not plain MUL (i.e. MULH, MULHSU, MULHU)
     mulhi_sel_e1_q <= ~((opcode_opcode_i & `INST_MUL_MASK) == `INST_MUL);
 end
 else
@@ -136,26 +148,56 @@ begin
     mulhi_sel_e1_q <= 1'b0;
 end
 
-assign mult_result_w = {{ 32 {operand_a_e1_q[32]}}, operand_a_e1_q}*{{ 32 {operand_b_e1_q[32]}}, operand_b_e1_q};
+//-------------------------------------------------------------
+// Combinational multiply
+//-------------------------------------------------------------
+wire [64:0] mult_result_w;
 
-always @ *
+assign mult_result_w = {{32{operand_a_e1_q[32]}}, operand_a_e1_q} *
+                       {{32{operand_b_e1_q[32]}}, operand_b_e1_q};
+
+reg [31:0] result_r;
+
+always @*
 begin
+    // Select upper or lower 32-bits
     result_r = mulhi_sel_e1_q ? mult_result_w[63:32] : mult_result_w[31:0];
 end
 
+//-------------------------------------------------------------
+// Stage 2
+//-------------------------------------------------------------
 always @(posedge clk_i or posedge rst_i)
 if (rst_i)
     result_e2_q <= 32'b0;
-else if (~hold_i)
+else if (!hold_i)
     result_e2_q <= result_r;
 
+//-------------------------------------------------------------
+// Stage 3 (optional, depending on MULT_STAGES)
+//-------------------------------------------------------------
 always @(posedge clk_i or posedge rst_i)
 if (rst_i)
     result_e3_q <= 32'b0;
-else if (~hold_i)
+else if (!hold_i)
     result_e3_q <= result_e2_q;
 
-assign writeback_value_o  = (MULT_STAGES == 3) ? result_e3_q : result_e2_q;
+//-------------------------------------------------------------
+// Busy tracking
+//-------------------------------------------------------------
+always @(posedge clk_i or posedge rst_i)
+if (rst_i)
+    mul_valid_q <= {MUL_PIPE_STAGES{1'b0}};
+else if (hold_i)
+    mul_valid_q <= mul_valid_q;   // stall pipeline
+else
+    mul_valid_q <= {mul_valid_q[MUL_PIPE_STAGES-2:0], mul_new_valid_w};
 
+assign busy_o = |mul_valid_q;
+
+//-------------------------------------------------------------
+// Writeback mux
+//-------------------------------------------------------------
+assign writeback_value_o = (MULT_STAGES == 3) ? result_e3_q : result_e2_q;
 
 endmodule

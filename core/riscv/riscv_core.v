@@ -228,12 +228,24 @@ wire [63:0]   tlm_mcycle_w;
 wire [63:0]   tlm_minstret_w;
 wire [63:0]   tlm_stall_w;
 
-
 wire  [  4:0]  lsu_opcode_ra_idx_w;
 wire  [ 31:0]  csr_writeback_exception_pc_w;
 wire           mmu_store_fault_w;
 wire           branch_exec_is_call_w;
 
+// --- NEW: Multiplier busy signal & counter ---
+wire          mul_busy_w;          // from riscv_multiplier.u_mul
+
+// 5. mul_busy_cycles: counts cycles while multiplier is busy
+reg  [31:0]   mul_busy_cycles_q;
+
+always @(posedge clk_i or posedge rst_i)
+begin
+    if (rst_i)
+        mul_busy_cycles_q <= 32'd0;
+    else if (mul_busy_w)
+        mul_busy_cycles_q <= mul_busy_cycles_q + 32'd1;
+end
 
 riscv_exec
 u_exec
@@ -416,7 +428,6 @@ u_lsu
     ,.stall_o(lsu_stall_w)
 );
 
-
 riscv_csr
 #(
      .SUPPORT_SUPER(SUPPORT_SUPER)
@@ -446,6 +457,9 @@ u_csr
     ,.cpu_id_i(cpu_id_i)
     ,.reset_vector_i(reset_vector_i)
     ,.interrupt_inhibit_i(interrupt_inhibit_w)
+
+    // NEW: mul_busy performance counter input
+    ,.mul_busy_cycles_i(mul_busy_cycles_q)
 
     // Outputs
     ,.csr_result_e1_value_o(csr_result_e1_value_w)
@@ -501,6 +515,7 @@ u_mul
 
     // Outputs
     ,.writeback_value_o(writeback_mul_value_w)
+    ,.busy_o(mul_busy_w)   // NEW: drive mul_busy_w for mul_busy_cycles counter
 );
 
 
@@ -525,18 +540,13 @@ u_div
     ,.writeback_value_o(writeback_div_value_w)
 );
 
-
 riscv_issue
 #(
-     .SUPPORT_REGFILE_XILINX(SUPPORT_REGFILE_XILINX)
-    ,.SUPPORT_LOAD_BYPASS(SUPPORT_LOAD_BYPASS)
-    ,.SUPPORT_MULDIV(SUPPORT_MULDIV)
-    ,.SUPPORT_MUL_BYPASS(SUPPORT_MUL_BYPASS)
-    ,.SUPPORT_DUAL_ISSUE(1)
-    //telemetry
-    ,.retire_pulse_o(retire_pulse_w)
-    ,.stall_cycle_o(stall_cycle_w)
-
+     .SUPPORT_MULDIV         (SUPPORT_MULDIV)
+    ,.SUPPORT_DUAL_ISSUE     (1)
+    ,.SUPPORT_LOAD_BYPASS    (SUPPORT_LOAD_BYPASS)
+    ,.SUPPORT_MUL_BYPASS     (SUPPORT_MUL_BYPASS)
+    ,.SUPPORT_REGFILE_XILINX (SUPPORT_REGFILE_XILINX)
 )
 u_issue
 (
@@ -635,7 +645,13 @@ u_issue
     ,.exec_hold_o(exec_hold_w)
     ,.mul_hold_o(mul_hold_w)
     ,.interrupt_inhibit_o(interrupt_inhibit_w)
+
+    // Telemetry outputs
+    ,.retire_pulse_o(retire_pulse_w)
+    ,.stall_cycle_o(stall_cycle_w)
 );
+
+
 
 
 riscv_fetch
