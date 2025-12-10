@@ -1,0 +1,398 @@
+#######################################################################################
+# log primitive debug message of FSDB dumping                                         #
+# This is for R&D to analyze when there are issues happening when FSDB dump           #
+#######################################################################################
+ANF: vcsd_get_serial_mode_status('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: vcsd_get_serial_mode_status')
+ANF: vcsd_enable_sva_success_callback('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: vcsd_enable_sva_success_callback')
+ANF: vcsd_disable_sva_success_callback('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: vcsd_disable_sva_success_callback')
+ANF: vcsd_get_power_scope_name('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: vcsd_get_power_scope_name')
+ANF: vcsd_dump_var_vpdg('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: vcsd_dump_var_vpdg')
+ANF: vcsd_begin_no_value_var_info('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: vcsd_begin_no_value_var_info')
+ANF: vcsd_end_no_value_var_info('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: vcsd_end_no_value_var_info')
+ANF: vcsd_remove_xprop_merge_mode_callback('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: vcsd_remove_xprop_merge_mode_callback')
+ANF: vhpi_get_cb_info('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: vhpi_get_cb_info')
+ANF: vhpi_free_handle('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: vhpi_free_handle')
+ANF: vhpi_fetch_vcsd_handle('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: vhpi_fetch_vcsd_handle')
+ANF: vhpi_fetch_vpi_handle('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: vhpi_fetch_vpi_handle')
+ANF: vhpi_has_verilog_parent('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: vhpi_has_verilog_parent')
+ANF: vhpi_is_verilog_scope('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: vhpi_is_verilog_scope')
+ANF: scsd_xprop_is_enabled('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: scsd_xprop_is_enabled')
+ANF: scsd_xprop_sig_is_promoted('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: scsd_xprop_sig_is_promoted')
+ANF: scsd_xprop_int_xvalue('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: scsd_xprop_int_xvalue')
+ANF: scsd_xprop_bool_xvalue('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: scsd_xprop_bool_xvalue')
+ANF: scsd_xprop_enum_xvalue('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: scsd_xprop_enum_xvalue')
+ANF: scsd_xprop_register_merge_mode_cb('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: scsd_xprop_register_merge_mode_cb')
+ANF: scsd_xprop_delete_merge_mode_cb('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: scsd_xprop_delete_merge_mode_cb')
+ANF: scsd_xprop_get_merge_mode('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: scsd_xprop_get_merge_mode')
+ANF: scsd_thread_get_info('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: scsd_thread_get_info')
+ANF: scsd_thread_vc_init('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: scsd_thread_vc_init')
+ANF: scsd_master_set_delta_sync_cbk('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: scsd_master_set_delta_sync_cbk')
+ANF: scsd_fgp_get_fsdb_cores('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: scsd_fgp_get_fsdb_cores')
+ANF: scsd_fgp_get_is_cpu_affinity_disabled('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: scsd_fgp_get_is_cpu_affinity_disabled')
+ANF: vdi_dt_get_vlog_variant_size_array_info('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: vdi_dt_get_vlog_variant_size_array_info')
+ANF: vdi_flat_node_get_total_bit_size('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: vdi_flat_node_get_total_bit_size')
+ANF: vhdi_dt_get_type('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: vhdi_dt_get_type')
+ANF: vhdi_dt_get_key('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: vhdi_dt_get_key')
+ANF: vhdi_dt_get_vhdl_enum_info('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: vhdi_dt_get_vhdl_enum_info')
+ANF: vhdi_dt_get_vhdl_physical_info('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: vhdi_dt_get_vhdl_physical_info')
+ANF: vhdi_dt_get_vhdl_array_info('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: vhdi_dt_get_vhdl_array_info')
+ANF: vhdi_dt_get_vhdl_record_info('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: vhdi_dt_get_vhdl_record_info')
+ANF: vhdi_dt_get_vhdl_integer_range_info('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: vhdi_dt_get_vhdl_integer_range_info')
+ANF: vhdi_def_traverse_module('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: vhdi_def_traverse_module')
+ANF: vhdi_def_traverse_scope('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: vhdi_def_traverse_scope')
+ANF: vhdi_def_traverse_variable('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: vhdi_def_traverse_variable')
+ANF: vhdi_def_get_module_id_by_vhpi('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: vhdi_def_get_module_id_by_vhpi')
+ANF: vhdi_def_get_handle_by_module_id('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: vhdi_def_get_handle_by_module_id')
+ANF: vhdi_def_get_variable_info_by_vhpi('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: vhdi_def_get_variable_info_by_vhpi')
+ANF: vhdi_def_free('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: vhdi_def_free')
+ANF: vhdi_ist_traverse_scope('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: vhdi_ist_traverse_scope')
+ANF: vhdi_ist_traverse_variable('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: vhdi_ist_traverse_variable')
+ANF: vhdi_ist_convert_by_vhpi('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: vhdi_ist_convert_by_vhpi')
+ANF: vhdi_ist_clone('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: vhdi_ist_clone')
+ANF: vhdi_ist_free('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: vhdi_ist_free')
+ANF: vhdi_ist_hash_key('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: vhdi_ist_hash_key')
+ANF: vhdi_ist_compare('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: vhdi_ist_compare')
+ANF: vhdi_ist_get_value_addr('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: vhdi_ist_get_value_addr')
+ANF: vhdi_set_scsd_callback('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: vhdi_set_scsd_callback')
+ANF: vhdi_cbk_set_force_callback('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: vhdi_cbk_set_force_callback')
+ANF: vhdi_trigger_init_force('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: vhdi_trigger_init_force')
+ANF: vhdi_ist_check_scsd_callback('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: vhdi_ist_check_scsd_callback')
+ANF: vhdi_ist_add_scsd_callback('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: vhdi_ist_add_scsd_callback')
+ANF: vhdi_ist_remove_scsd_callback('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: vhdi_ist_remove_scsd_callback')
+ANF: vhdi_ist_get_scsd_user_data('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: vhdi_ist_get_scsd_user_data')
+ANF: vhdi_add_time_change_callback('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: vhdi_add_time_change_callback')
+ANF: vhdi_get_real_value_by_value_addr('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: vhdi_get_real_value_by_value_addr')
+ANF: vhdi_get_64_value_by_value_addr('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: vhdi_get_64_value_by_value_addr')
+ANF: vhdi_xprop_inst_is_promoted('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: vhdi_xprop_inst_is_promoted')
+ANF: vdi_ist_convert_by_vhdi('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: vdi_ist_convert_by_vhdi')
+ANF: vhdi_ist_get_module_id('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: vhdi_ist_get_module_id')
+ANF: vhdi_refine_foreign_scope_type('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: vhdi_refine_foreign_scope_type')
+ANF: vhdi_flush_callback('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: vhdi_flush_callback')
+ANF: vhdi_set_orig_name('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: vhdi_set_orig_name')
+ANF: vhdi_set_dump_pt('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: vhdi_set_dump_pt')
+ANF: vhdi_set_int_subtype('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: vhdi_set_int_subtype')
+ANF: vhdi_set_fixed_point('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: vhdi_set_fixed_point')
+ANF: vhdi_get_fsdb_option('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: vhdi_get_fsdb_option')
+ANF: vhdi_fgp_get_mode('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: vhdi_fgp_get_mode')
+ANF: vhdi_node_register_composite_var('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: vhdi_node_register_composite_var')
+ANF: vhdi_node_analysis('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: vhdi_node_analysis')
+ANF: vhdi_node_id('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: vhdi_node_id')
+ANF: vhdi_node_ist_check_scsd_callback('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: vhdi_node_ist_check_scsd_callback')
+ANF: vhdi_node_ist_add_scsd_callback('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: vhdi_node_ist_add_scsd_callback')
+ANF: vhdi_node_ist_get_value_addr('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: vhdi_node_ist_get_value_addr')
+ANF: vhdi_enc_def_traverse_module('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: vhdi_enc_def_traverse_module')
+ANF: vhdi_enc_def_traverse_scope('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: vhdi_enc_def_traverse_scope')
+ANF: vhdi_enc_def_traverse_variable('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: vhdi_enc_def_traverse_variable')
+ANF: vhdi_enc_ist_traverse_scope('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: vhdi_enc_ist_traverse_scope')
+ANF: vhdi_enc_ist_traverse_variable('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: vhdi_enc_ist_traverse_variable')
+ANF: vhdi_enc_ist_get_module_id('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: vhdi_enc_ist_get_module_id')
+ANF: vhdi_enc_def_get_handle_by_module_id('/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm: undefined symbol: vhdi_enc_def_get_handle_by_module_id')
+VCS compile option:
+ option[0]: /home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm
+ option[1]: -sml=verdi
+ option[2]: +fsdb+gate=off
+ option[3]: -ucli2Proc
+ option[4]: -ucli
+ option[5]: -l
+ option[6]: /home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/verdiLog/sim.log
+ option[7]: /eda/synopsys/vcs/U-2023.03-SP2-5/linux64/bin/vcs1
+ option[8]: -Mcc=gcc
+ option[9]: -Mcplusplus=g++
+ option[10]: -Masflags=
+ option[11]: -Mcfl= -pipe -fPIC -O -I/eda/synopsys/vcs/U-2023.03-SP2-5/include 
+ option[12]: -Mxllcflags=
+ option[13]: -Mxcflags= -pipe -fPIC -I/eda/synopsys/vcs/U-2023.03-SP2-5/include
+ option[14]: -Mldflags= -rdynamic 
+ option[15]: -Mout=simv_tlm
+ option[16]: -Mamsrun=
+ option[17]: -Mvcsaceobjs=
+ option[18]: -Mobjects= /eda/synopsys/vcs/U-2023.03-SP2-5/linux64/lib/libvirsim.so /eda/synopsys/vcs/U-2023.03-SP2-5/linux64/lib/liberrorinf.so /eda/synopsys/vcs/U-2023.03-SP2-5/linux64/lib/libsnpsmalloc.so /eda/synopsys/vcs/U-2023.03-SP2-5/linux64/lib/libvfs.so 
+ option[19]: -Mexternalobj=
+ option[20]: -Msaverestoreobj=/eda/synopsys/vcs/U-2023.03-SP2-5/linux64/lib/vcs_save_restore_new.o
+ option[21]: -Mcrt0=
+ option[22]: -Mcrtn=
+ option[23]: -Mcsrc=
+ option[24]: -Msyslibs=/eda/synopsys/verdi/U-2023.03-SP2-5/share/PLI/VCS/LINUX64/pli.a -ldl 
+ option[25]: -full64
+ option[26]: -kdb
+ option[27]: -Xufe=2steps
+ option[28]: -timescale=1ns/1ps
+ option[29]: -debug_access+all
+ option[30]: +vpi
+ option[31]: +vcsd1
+ option[32]: +itf+/eda/synopsys/vcs/U-2023.03-SP2-5/linux64/lib/vcsdp_lite.tab
+ option[33]: +define+SIM_TCM_BEHAV
+ option[34]: -top
+ option[35]: tb_mmio2
+ option[36]: -o
+ option[37]: simv_tlm
+ option[38]: -picarchive
+ option[39]: -P
+ option[40]: /eda/synopsys/verdi/U-2023.03-SP2-5/share/PLI/VCS/LINUX64/verdi.tab
+ option[41]: -fsdb
+ option[42]: -sverilog
+ option[43]: -gen_obj
+ option[44]: tb_mmio2.sv
+ option[45]: trace_buffer.sv
+ option[46]: telemetry_counters.sv
+ option[47]: perf_mmio_adapter.v
+ option[48]: Debug_Telemetry.sv
+ option[49]: riscv_tcm_top.v
+ option[50]: tcm_mem.v
+ option[51]: tcm_mem_pmem.v
+ option[52]: tcm_sram32k_sp.v
+ option[53]: dport_axi.v
+ option[54]: dport_mux.v
+ option[55]: riscv_defs.v
+ option[56]: riscv_core.v
+ option[57]: riscv_exec.v
+ option[58]: riscv_fetch.v
+ option[59]: riscv_issue.v
+ option[60]: riscv_lsu.v
+ option[61]: riscv_mmu.v
+ option[62]: riscv_csr.v
+ option[63]: riscv_divider.v
+ option[64]: riscv_multiplier.v
+ option[65]: riscv_pipe_ctrl.v
+ option[66]: riscv_regfile.v
+ option[67]: riscv_alu.v
+ option[68]: riscv_decoder.v
+ option[69]: riscv_decode.v
+ option[70]: riscv_csr_regfile.v
+ option[71]: /ip/tsmc/tsmc16adfp/sram/VERILOG/N16ADFP_SRAM_100a.v
+ option[72]: -load
+ option[73]: /eda/synopsys/verdi/U-2023.03-SP2-5/share/PLI/VCS/LINUX64/libnovas.so:FSDBDumpCmd
+ option[74]: timescale=1ns/1ps
+Chronologic Simulation VCS Release U-2023.03-SP2-5_Full64
+Linux 4.18.0-553.71.1.el8_10.x86_64 #1 SMP Fri Aug 15 18:19:39 EDT 2025 x86_64
+CPU cores: 64
+Limit information:
+======================================
+cputime		unlimited
+filesize		unlimited
+datasize		unlimited
+stacksize		8192 kbytes
+coredumpsize		0 kbytes
+memoryuse		unlimited
+vmemoryuse		unlimited
+descriptors		262144
+memorylocked		64 kbytes
+maxproc		4059267
+======================================
+(Special)Runtime environment variables:
+
+Runtime environment variables:
+MATLAB_USE_USERPATH=1
+LC_ALL=C
+LS_COLORS=rs=0:di=38;5;33:ln=38;5;51:mh=00:pi=40;38;5;11:so=38;5;13:do=38;5;5:bd=48;5;232;38;5;11:cd=48;5;232;38;5;3:or=48;5;232;38;5;9:mi=01;05;37;41:su=48;5;196;38;5;15:sg=48;5;11;38;5;16:ca=48;5;196;38;5;226:tw=48;5;10;38;5;16:ow=48;5;10;38;5;21:st=48;5;21;38;5;15:ex=38;5;40:*.tar=38;5;9:*.tgz=38;5;9:*.arc=38;5;9:*.arj=38;5;9:*.taz=38;5;9:*.lha=38;5;9:*.lz4=38;5;9:*.lzh=38;5;9:*.lzma=38;5;9:*.tlz=38;5;9:*.txz=38;5;9:*.tzo=38;5;9:*.t7z=38;5;9:*.zip=38;5;9:*.z=38;5;9:*.dz=38;5;9:*.gz=38;5;9:*.lrz=38;5;9:*.lz=38;5;9:*.lzo=38;5;9:*.xz=38;5;9:*.zst=38;5;9:*.tzst=38;5;9:*.bz2=38;5;9:*.bz=38;5;9:*.tbz=38;5;9:*.tbz2=38;5;9:*.tz=38;5;9:*.deb=38;5;9:*.rpm=38;5;9:*.jar=38;5;9:*.war=38;5;9:*.ear=38;5;9:*.sar=38;5;9:*.rar=38;5;9:*.alz=38;5;9:*.ace=38;5;9:*.zoo=38;5;9:*.cpio=38;5;9:*.7z=38;5;9:*.rz=38;5;9:*.cab=38;5;9:*.wim=38;5;9:*.swm=38;5;9:*.dwm=38;5;9:*.esd=38;5;9:*.jpg=38;5;13:*.jpeg=38;5;13:*.mjpg=38;5;13:*.mjpeg=38;5;13:*.gif=38;5;13:*.bmp=38;5;13:*.pbm=38;5;13:*.pgm=38;5;13:*.ppm=38;5;13:*.tga=38;5;13:*.xbm=38;5;13:*.xpm=38;5;13:*.tif=38;5;13:*.tiff=38;5;13:*.png=38;5;13:*.svg=38;5;13:*.svgz=38;5;13:*.mng=38;5;13:*.pcx=38;5;13:*.mov=38;5;13:*.mpg=38;5;13:*.mpeg=38;5;13:*.m2v=38;5;13:*.mkv=38;5;13:*.webm=38;5;13:*.ogm=38;5;13:*.mp4=38;5;13:*.m4v=38;5;13:*.mp4v=38;5;13:*.vob=38;5;13:*.qt=38;5;13:*.nuv=38;5;13:*.wmv=38;5;13:*.asf=38;5;13:*.rm=38;5;13:*.rmvb=38;5;13:*.flc=38;5;13:*.avi=38;5;13:*.fli=38;5;13:*.flv=38;5;13:*.gl=38;5;13:*.dl=38;5;13:*.xcf=38;5;13:*.xwd=38;5;13:*.yuv=38;5;13:*.cgm=38;5;13:*.emf=38;5;13:*.ogv=38;5;13:*.ogx=38;5;13:*.aac=38;5;45:*.au=38;5;45:*.flac=38;5;45:*.m4a=38;5;45:*.mid=38;5;45:*.midi=38;5;45:*.mka=38;5;45:*.mp3=38;5;45:*.mpc=38;5;45:*.ogg=38;5;45:*.ra=38;5;45:*.wav=38;5;45:*.oga=38;5;45:*.opus=38;5;45:*.spx=38;5;45:*.xspf=38;5;45:
+LD_LIBRARY_PATH=/eda/mentor/Siemens/Catapult_Synthesis_2024.1/Mgc_home/lib:/eda/mentor/Siemens/Catapult_Synthesis_2024.1/Mgc_home/shared/lib:
+HOSTTYPE=x86_64-linux
+SYS_INST_DIR=/eda/synopsys/verdi/U-2023.03-SP2-5
+MGLS_LICENSE_FILE=1717@pyke.poly.edu
+MGC_CALIBRE_DRC_RUNSET_FILE=./.runset.calibre.drc
+PSIM=/eda/synopsys/primesim/U-2023.03-2
+XDG_MENU_PREFIX=gnome-
+MGC_CALIBRE_LVS_RUNSET_FILE=./.runset.calibre.lvs
+LANG=C
+CDS_DIR=/eda/cadence/IC618/tools
+DISPLAY=:108
+HOSTNAME=ecs03.poly.edu
+PCM_STUDIO=/eda/synopsys/pcm_studio/U-2023.06
+HSP_HOME=/eda/synopsys/hspice/V-2023.12-SP1-1
+COLORTERM=truecolor
+SUBSTRATESTORMHOME=/eda/cadence/ASSURA
+SNPSLMD_LICENSE_FILE=27020@pyke.poly.edu
+CDS_Netlisting_Mode=Analog
+SENTAURUS=/eda/synopsys/sentaurus/U-2022.12-SP1
+VENDOR=unknown
+MACHTYPE=x86_64
+PVSHOME=/eda/cadence/PVS231
+MGC_CALIBRE_PEX_RUNSET_FILE=./.runset.calibre.pex
+MODULES_USE_COMPAT_VERSION=0
+SSH_AUTH_SOCK=/run/user/4425035/keyring/ssh
+OSTYPE=linux
+ASSURAHOME=/eda/cadence/ASSURA
+TXS=/eda/synopsys/txs/U-2022.12-SP4
+XDG_SESSION_ID=203
+NOVAS_SYNC_MOTIF_DISP=
+MODULES_CMD=/usr/share/Modules/libexec/modulecmd.tcl
+USER=db5309
+XILINXD_LICENSE_FILE=2100@pyke.poly.edu
+SELINUX_ROLE_REQUESTED=
+base_dir=/eda/cadence/
+GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/49d995e1_3133_4d5d_afc5_e9633839366c
+GROUP=db5309
+PWD=/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry
+SSH_ASKPASS=/usr/libexec/openssh/gnome-ssh-askpass
+HOME=/home/db5309
+HOST=ecs03.poly.edu
+USE_CALIBRE_VCO=aok
+SSH_CLIENT=127.0.0.1 50448 3322
+XNLSPATH=/eda/synopsys/verdi/U-2023.03-SP2-5/etc/access/nls
+CDS_SITE=/eda/cadence/local
+SELINUX_LEVEL_REQUESTED=
+MGC_HOME=/eda/mentor/Siemens/Catapult_Synthesis_2024.1/Mgc_home
+FASTX_SESSION_DIR=/home/db5309/.fastx_server/ecs03.poly.edu/sessions/FX3-9c478f38b32e49d5913aad9ba2ac87a3
+FASTX_SESSION_ID=9c478f38b32e49d5913aad9ba2ac87a3
+CDSHOME=/eda/cadence/IC618
+MMSIM_HOME=/eda/cadence/SPECTRE231/tools.lnx86
+DBUS_STARTER_ADDRESS=unix:abstract=/tmp/dbus-EglnhhNwJV,guid=57a055b55a8f9498a78db2d868caee40
+SPS_XFONT_PATH=/eda/synopsys/verdi/U-2023.03-SP2-5/XFont
+CDS_HOME=/eda/cadence/IC618
+LOADEDMODULES=
+XILINX=/eda/xilinx/
+CLS_CDSD_COMPATIBILITY_LOCKING=NO
+CC_HOME=/eda/synopsys/customcompiler/V-2023.12-SP1-3
+VC_STATIC_HOME=/eda/synopsys/vc_static/U-2023.03-SP2-5
+MAIL=/var/spool/mail/db5309
+CDS_LIC_FILE=5281@pyke.poly.edu:/opt/cadence/License/cadence.lic
+LD_NOVERSION=1
+QT_PLUGIN_PATH=/eda/synopsys/verdi/U-2023.03-SP2-5/platform/LINUXAMD64/lib/Qt/plugins
+TERM=xterm-256color
+VTE_VERSION=5204
+SHELL=/bin/tcsh
+QT_IM_MODULE=ibus
+XMODIFIERS=@im=none
+LM_LICENSE_FILE=27020@pyke.poly.edu
+DBUS_STARTER_BUS_TYPE=session
+CDS_AUTO_64BIT=ALL
+XDG_CURRENT_DESKTOP=GNOME
+SELINUX_USE_CURRENT_RANGE=
+GNOME_TERMINAL_SERVICE=:1.116
+VERDI_HOME=/eda/synopsys/verdi/U-2023.03-SP2-5
+PRIMEWAVE=/eda/synopsys/primewave/V-2023.12-SP1-3
+ICC_HOME=/eda/synopsys/icc2/T-2022.03-SP2-1
+SHLVL=2
+PYTHONPATH=/usr/lib/python3.6/site-packages
+PDK_DIR=/ALL_PDK/asap7PDK_r1p7
+MANPATH=/usr/share/man:
+CDSROOT=/eda/cadence/IC618
+SPS_FONT_PATH=/eda/synopsys/verdi/U-2023.03-SP2-5/font
+CDS=/eda/cadence/
+MODULEPATH=/etc/scl/modulefiles:/etc/scl/modulefiles:/etc/scl/modulefiles:/usr/share/Modules/modulefiles:/etc/modulefiles:/usr/share/modulefiles
+VERDI_ORIGNAL_LD_LIBRARY_PATH=/eda/mentor/Siemens/Catapult_Synthesis_2024.1/Mgc_home/lib:/eda/mentor/Siemens/Catapult_Synthesis_2024.1/Mgc_home/shared/lib:
+GNOME_DESKTOP_SESSION_ID=this-is-deprecated
+LOGNAME=db5309
+DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-EglnhhNwJV,guid=57a055b55a8f9498a78db2d868caee40
+PRIME=/eda/synopsys/prime/T-2022.03-SP5-1
+SPS_RGB_PATH=/eda/synopsys/verdi/U-2023.03-SP2-5/etc/rgb
+XDG_RUNTIME_DIR=/run/user/4425035
+SUBSTRATESTORMSITE=/eda/cadence/IC618/share/sna/etc/cdslib/substrateLib
+MODULEPATH_modshare=/usr/share/Modules/modulefiles:2:/etc/modulefiles:2:/usr/share/modulefiles:2
+MALLOC_ARENA_MAX=1
+SYN_HOME=/eda/synopsys/syn/W-2024.09-SP5-5
+PATH=/eda/cadence/LIBERATE231/bin:/usr/lib64:/eda/cadence/IC618/tools/dfII/bin:/eda/cadence/SPECTRE231/tools.lnx86/bin:/eda/cadence/SPECTRE231/tools.lnx86/dfII/bin:/eda/cadence/IC618/tools/bin:/eda/cadence/IC618/tools/dfII/bin:/eda/cadence/IC618/tools/SKILL37.00:/eda/cadence/IC618/tools/dracula/bin:/eda/cadence/PVS231/bin:/eda/cadence/PVS231/tools/bin:/eda/cadence/PVS231/tools/dfII/bin:/eda/cadence/PVS231/tools/pvs/bin:/eda/cadence/ASSURA/tools/assura/bin:/eda/cadence/IC618/share/sna/etc/cdslib/substrateLib:/eda/cadence/LIBERATE231/bin:/usr/lib64:/eda/cadence/IC618/tools/dfII/bin:/eda/cadence/SPECTRE231/tools.lnx86/bin:/eda/cadence/SPECTRE231/tools.lnx86/dfII/bin:/eda/cadence/IC618/tools/bin:/eda/cadence/IC618/tools/dfII/bin:/eda/cadence/IC618/tools/SKILL37.00:/eda/cadence/IC618/tools/dracula/bin:/eda/cadence/PVS231/bin:/eda/cadence/PVS231/tools/bin:/eda/cadence/PVS231/tools/dfII/bin:/eda/cadence/PVS231/tools/pvs/bin:/eda/cadence/ASSURA/tools/assura/bin:/eda/cadence/IC618/share/sna/etc/cdslib/substrateLib:/eda/cadence/LIBERATE231/bin:/usr/lib64:/eda/cadence/IC618/tools/dfII/bin:/eda/cadence/SPECTRE231/tools.lnx86/bin:/eda/cadence/SPECTRE231/tools.lnx86/dfII/bin:/eda/cadence/IC618/tools/bin:/eda/cadence/IC618/tools/dfII/bin:/eda/cadence/IC618/tools/SKILL37.00:/eda/cadence/IC618/tools/dracula/bin:/eda/cadence/PVS231/bin:/eda/cadence/PVS231/tools/bin:/eda/cadence/PVS231/tools/dfII/bin:/eda/cadence/PVS231/tools/pvs/bin:/eda/cadence/ASSURA/tools/assura/bin:/eda/cadence/IC618/share/sna/etc/cdslib/substrateLib:/usr/share/Modules/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/ALL_PDK/klayout-git/bin-release:/eda/mentor/Siemens/Catapult_Synthesis_2024.1/Mgc_home/bin:/eda/mentor/Calibre/aok_cal_2024.2_29.16/bin:/usr/local/bin:/eda/synopsys/lc/W-2024.09/bin:/eda/synopsys/customcompiler/V-2023.12-SP1-3/bin:/eda/synopsys/hspice/V-2023.12-SP1-1/hspice/bin:/eda/synopsys/verdi/U-2023.03-SP2-5/bin:/eda/synopsys/vc_static/U-2023.03-SP2-5/bin:/eda/synopsys/vcs/U-2023.03-SP2-5/bin:/eda/synopsys/icc2/T-2022.03-SP2-1/bin:/eda/synopsys/syn/U-2022.12-SP7-3/bin:/eda/synopsys/pcm_studio/U-2023.06/bin:/eda/synopsys/prime/T-2022.03-SP5-1/bin:/eda/synopsys/txs/U-2022.12-SP4/bin:/eda/synopsys/primesim/U-2023.03-2/bin:/eda/synopsys/sentaurus/U-2022.12-SP1/bin:/eda/xilinx//Vivado/2023.2/bin:/eda/xilinx//Vitis_HLS/2023.2/bin:/eda/xilinx//DocNav:/usr/lib/fastx/3/apps:/ALL_PDK/klayout-git/bin-release:/eda/mentor/Siemens/Catapult_Synthesis_2024.1/Mgc_home/bin:/eda/mentor/Calibre/aok_cal_2024.2_29.16/bin:/usr/local/bin:/eda/synopsys/lc/W-2024.09/bin:/eda/synopsys/customcompiler/V-2023.12-SP1-3/bin:/eda/synopsys/hspice/V-2023.12-SP1-1/hspice/bin:/eda/synopsys/verdi/U-2023.03-SP2-5/bin:/eda/synopsys/vc_static/U-2023.03-SP2-5/bin:/eda/synopsys/vcs/U-2023.03-SP2-5/bin:/eda/synopsys/icc2/T-2022.03-SP2-1/bin:/eda/synopsys/syn/U-2022.12-SP7-3/bin:/eda/synopsys/pcm_studio/U-2023.06/bin:/eda/synopsys/prime/T-2022.03-SP5-1/bin:/eda/synopsys/txs/U-2022.12-SP4/bin:/eda/synopsys/primesim/U-2023.03-2/bin:/eda/synopsys/sentaurus/U-2022.12-SP1/bin:/eda/xilinx//Vivado/2023.2/bin:/eda/xilinx//Vitis_HLS/2023.2/bin:/eda/xilinx//DocNav:/ALL_PDK/klayout-git/bin-release:/eda/mentor/Siemens/Catapult_Synthesis_2024.1/Mgc_home/bin:/eda/mentor/Calibre/aok_cal_2024.2_29.16/bin:/usr/local/bin:/eda/synopsys/lc/W-2024.09/bin:/eda/synopsys/customcompiler/V-2023.12-SP1-3/bin:/eda/synopsys/hspice/V-2023.12-SP1-1/hspice/bin:/eda/synopsys/verdi/U-2023.03-SP2-5/bin:/eda/synopsys/vc_static/U-2023.03-SP2-5/bin:/eda/synopsys/vcs/U-2023.03-SP2-5/bin:/eda/synopsys/icc2/T-2022.03-SP2-1/bin:/eda/synopsys/syn/W-2024.09-SP5-5/bin:/eda/synopsys/pcm_studio/U-2023.06/bin:/eda/synopsys/prime/T-2022.03-SP5-1/bin:/eda/synopsys/txs/U-2022.12-SP4/bin:/eda/synopsys/primesim/U-2023.03-2/bin:/eda/synopsys/sentaurus/U-2022.12-SP1/bin:/eda/synopsys/primewave/V-2023.12-SP1-3/bin:/eda/xilinx//Vivado/2023.2/bin:/eda/xilinx//Vitis_HLS/2023.2/bin:/eda/xilinx//DocNav
+CALIBRE_HOME=/eda/mentor/Calibre/aok_cal_2024.2_29.16
+VCS_HOME=/eda/synopsys/vcs/U-2023.03-SP2-5
+OA_HOME=/eda/cadence/IC618/oa_v22.60.092
+MODULESHOME=/usr/share/Modules
+LD_PRELOAD=/usr/lib64/libssl.so.1.1.1k:/usr/lib64/libcrypto.so.1.1.1k
+CDK_DIR=/eda/cadence/local/ncsu-cdk-1.6.0.beta
+SYS_PROG_NAME=verdi
+NOVASHLPPATH=/eda/synopsys/verdi/U-2023.03-SP2-5/doc
+LESSOPEN=||/usr/bin/lesspipe.sh %s
+LC_HOME=/eda/synopsys/lc/W-2024.09
+NOVAS_LC_ALL=C
+SIMV_DAIDIR_PATH=/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm.daidir
+NOVAS_SIGNAL_BASE_EXTRACTION=1
+SIGNAL_BASE_EXTRACTION=1
+NOVAS_VERDI_SVTB_BETA=1
+VERDI_SVTB_BETA=1
+NOVAS_VERDI_SVTB_ALPHA=1
+VERDI_SVTB_ALPHA=1
+NOVAS_VERDI_TB_HT=1
+VERDI_TB_HT=1
+NOVAS_WAVE_REDRAW_ALLVC=1
+WAVE_REDRAW_ALLVC=1
+NOVAS_TCL_LIBRARY=/eda/synopsys/verdi/U-2023.03-SP2-5/etc/access/tcl86_library
+TCL_LIBRARY=/eda/synopsys/verdi/U-2023.03-SP2-5/etc/access/tcl86_library
+XKEYSYMDB=/eda/synopsys/verdi/U-2023.03-SP2-5/etc/access/XKeysymDB2.1
+XLOCALEDIR=/eda/synopsys/verdi/U-2023.03-SP2-5/etc/access/locale
+NOVAS_SIGNAL_BASED_BA=0
+SIGNAL_BASED_BA=0
+SYNOPSYS_SIM=/eda/synopsys/vcs/U-2023.03-SP2-5
+DISABLE_LIBRARY_MAP_CHECK=1
+AST_DUMP=11
+TRMIS_REVERSE_JUMP_TO_EARLIEST=1
+TS_TRMIS_DECIDE_RM_RC_ATTR=0
+TFV_FSDB_MIS_BATCH_REMOVE_INTF_RC_HAVING_INTF_MISMATCH=0
+TFV_FSDB_MIS_BATCH_ENABLE_FSDB_GATE=1
+TFV_FSDB_MIS_BATCH_DUMP_TDC=0
+TFV_FSDB_MIS_RCA_MODE=1
+SNPS_SIM_DEFAULT_GUI=verdi
+FSDB_FILE=/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/inter.fsdb
+VCS_UCLI_STDIN_BLOCKING=1
+FSDB_VHDL_PROTECTED=1
+FSDB_RD_IR_ENABLE=1
+FSDB_SVA_STATUS=1
+VCS_PATHMAP_PRELOAD_DONE=1
+VCS_STACK_EXEC=true
+VCS_EXEC_DONE=1
+VCS_STOP_SAFE=1
+DVE_SIM_SELECT_LOOP=on
+FLEXLM_BORROWFILE=/home/db5309/.ecs03.poly.edu-borrow.txt
+Runtime command line arguments:
+argv[0]=/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm
+argv[1]=-sml=verdi
+argv[2]=+fsdb+gate=off
+argv[3]=-ucli2Proc
+argv[4]=-ucli
+argv[5]=-l
+argv[6]=/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/verdiLog/sim.log
+341 profile - 100
+          CPU/Mem usage: 0.010 sys,  0.030 user,  304.27M mem
+342 Elapsed time:    0:00:00    Wed Dec 10 12:26:38 2025
+343 User CPU time used: 0 seconds
+344 System CPU time used: 0 seconds
+345 pliAppInit
+346 ndpGetenv(FSDB_FILE): /home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/inter.fsdb
+347 ndpGetenv(FSDB_SVA_STATUS): 1
+348 ndpGetenv(FSDB_VHDL_PROTECTED): 1
+349 [SC]Init: MemoryConsumed=0.00MB ElapsedTime=0hour 0min. 0sec.
+350 FSDB_GATE & FSDB_RTL is disabled.
+351 FSDB_ALIAS_ARRAY_ELEM is set to 4294967295.
+352 Enable Parallel Dumping.
+353 pliAppMiscSet: New Sim Round
+354 pliEntryInit
+355 LIBSSCORE=found /eda/synopsys/verdi/U-2023.03-SP2-5/share/PLI/lib/LINUXAMD64/libsscore_vcs202303.so through $NOVAS_HOME setting.
+356 FSDB Dumper for VCS, Release Verdi_U-2023.03-SP2-5, Linux x86_64/64bit, 04/15/2024
+357 (C) 1996 - 2024 by Synopsys, Inc.
+358 sps_tcl_fsdbDumpfile_main at 0
+359 argv[0]: /home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/inter.fsdb
+360 *Verdi* : Create FSDB file '/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/inter.fsdb'
+361 [spi_vcs_vd_ppi_create_root]: no upf option
+362 compile option from '/home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/simv_tlm.daidir/vcs_rebuild'.
+363   "vcs '-full64' '-kdb' '-sverilog' '-timescale=1ns/1ps' '-debug_access+all' '+define+SIM_TCM_BEHAV' 'tb_mmio2.sv' 'trace_buffer.sv' 'telemetry_counters.sv' 'perf_mmio_adapter.v' 'Debug_Telemetry.sv' 'riscv_tcm_top.v' 'tcm_mem.v' 'tcm_mem_pmem.v' 'tcm_sram32k_sp.v' 'dport_axi.v' 'dport_mux.v' 'riscv_defs.v' 'riscv_core.v' 'riscv_exec.v' 'riscv_fetch.v' 'riscv_issue.v' 'riscv_lsu.v' 'riscv_mmu.v' 'riscv_csr.v' 'riscv_divider.v' 'riscv_multiplier.v' 'riscv_pipe_ctrl.v' 'riscv_regfile.v' 'riscv_alu.v' 'riscv_decoder.v' 'riscv_decode.v' 'riscv_csr_regfile.v' '/ip/tsmc/tsmc16adfp/sram/VERILOG/N16ADFP_SRAM_100a.v' '-top' 'tb_mmio2' '-o' 'simv_tlm' 2>&1"
+364 sps_tcl_fsdbDumpflush_vd_main at 0 : N/A(0)
+365 *Verdi* : Flush all FSDB Files at 0 ps.
+366 sps_tcl_fsdbDumpflush_vd_main at 0 : N/A(0)
+367 *Verdi* : Flush all FSDB Files at 0 ps.
+368 sps_tcl_fsdbDumpflush_vd_main at 90439025000 : N/A(0)
+369 *Verdi* : Flush all FSDB Files at 90,439,025,000 ps.
+370 End of simulation at 90439025000
+371 Memory usage: 403.481 M
+372 Maximum resident set size: 105 MB
+373 Hard page faults: 2
+374 Soft page faults: 4329
+375 Elapsed time:    0:01:35    Wed Dec 10 12:28:13 2025
+376 User CPU time used: 32 seconds
+377 System CPU time used: 0 seconds
+378 Begin FSDB profile info:
+379 FSDB Writer : bc1(0) bcn(0) mtf/stf(0/4)
+FSDB Writer elapsed time : flush(0.012522) io wait(0.000000) theadpool wait(0.000000)
+FSDB Writer cpu time : MT Compression : 0
+380 End FSDB profile info
+381 FSDB closed. Name: /home/db5309/Documents/System-On-Chip-Design-Project/rtl_with_trace_mmio_dbg_telemtry/inter.fsdb Size: 8310
+382 Parallel profile     - ProducerThread:1 ConsumerThread:1 Buffer:64MB
+383                      - BlockUsed:1 Acquire:0 BufferUsed:17
+384                      - Flush:5 Expand:0 ProducerWait:0 ConsumerWait:0
+385                      - MainProducerTime:32.473967057 TotalConsumerTime:0.000000000
+386                      - ElapsedTime:94.596868000
+387 Producer   0 profile - BlockUsed:2 Acquire:0 BufferUsed:17
+388 Consumer   0 profile - Affinity:-1 CPUTime:0.000000000 LifeTime:0.000000000 (-nan%)
+389                      - BlockUsed:2 Acquire:0 BufferUsed:17
+390 SimExit
+391 Elapsed time:    0:01:35    Wed Dec 10 12:28:13 2025
+392 User CPU time used: 32 seconds
+393 System CPU time used: 0 seconds
+394 Sim process exit
